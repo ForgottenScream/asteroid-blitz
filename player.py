@@ -33,7 +33,6 @@ class Player(CircleShape):
 
     def update(self, dt):
         self.shoot_timer -= dt
-        print(f"timer decreasing: {self.shoot_timer}")
 
         keys = pygame.key.get_pressed()
 
@@ -47,11 +46,9 @@ class Player(CircleShape):
             self.rotate(+dt)
         if keys[pygame.K_SPACE]:
             if self.shoot_timer > 0:
-                print(f"Timer over 0: {self.shoot_timer}")
                 pass
             else:
                 self.shoot_timer = PLAYER_SHOOT_COOLDOWN_SECONDS
-                print(f"Timer after reassignment: {self.shoot_timer}")
                 self.shoot()
 
     def move(self, dt):
